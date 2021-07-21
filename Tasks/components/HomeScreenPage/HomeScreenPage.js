@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   StyleSheet,
   TextInput,
+  Image,
   Modal,
 } from 'react-native';
 
@@ -49,6 +50,7 @@ export default function () {
 
   return (
     <SafeAreaView>
+      <Text style={estilos.header}>Minhas Tarefas</Text>
       <FlatList
         style={estilos.flatList}
         data={produtos}
@@ -62,8 +64,23 @@ export default function () {
               </Text>
 
               <View style={estilos.buttons}>
-                <Button title="Ed" />
-                <Button title="Ex" />
+                <TouchableHighlight
+                  style={estilos.imgButton}
+                  // onPress={contar}
+                  underlayColor="#008">
+                  {/* <Text>ED</Text> */}
+                  <Image source={require('../../assets/Images/editar.png')} />
+                </TouchableHighlight>
+                <TouchableHighlight
+                  style={estilos.imgButton}
+                  // onPress={contar}
+                  underlayColor="#008">
+                  {/* <Text>EX</Text> */}
+                  <Image
+                    //style={styles.tinyLogo}
+                    source={require('../../assets/Images/lixeira.png')}
+                  />
+                </TouchableHighlight>
               </View>
             </View>
           </TouchableWithoutFeedback>
@@ -86,6 +103,13 @@ export default function () {
 }
 
 const estilos = StyleSheet.create({
+  header: {
+    backgroundColor: '#6B717E',
+    padding: 15,
+    paddingLeft: 22,
+    color: 'white',
+  },
+
   menu: {
     alignItems: 'center',
     backgroundColor: 'green',
@@ -114,10 +138,18 @@ const estilos = StyleSheet.create({
     width: '20%',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   button: {
     marginRight: 5,
+  },
+
+  imgButton: {
+    resizeMode: 'contain',
+    backgroundColor: 'green',
+    padding: 6,
+    borderRadius: 4,
   },
 
   //----------
@@ -134,3 +166,5 @@ const estilos = StyleSheet.create({
     padding: 10,
   },
 });
+
+//https://freeicons.io/technology-icons-2/asset-delete-recycle-bin-icon-19260
